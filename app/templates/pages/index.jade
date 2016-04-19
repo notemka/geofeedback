@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Geo Fiedback
+    link(rel="stylesheet", href="css/main.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css")
+  body
+    #map.map-container
+    .results
+
+    script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js")
+    script(src="js/main.js")
+    script(id="form-feadback" type="text/x-handlebars-template").
+      <div class="fiedback-form">
+        <div class="fiedback-form-header">
+          <div class="user-place">
+            <i class="fa fa-map-marker"></i>
+            {{data.place}} {{data.date}}
+          </div>
+          <a href="#" class="form-close"><i class="fa fa-remove"></i></a>
+        </div>
+        <div class="feadbacks">
+          {{#each feadbacksData}}
+            <div class="feadback">
+              <div className="user-feadback">
+                <span class="user-name">{{name}}</span>
+                <span class="user-place">{{place}}</span>
+                <span class="user-date">{{date}}</span>
+              </div>
+              <div class="user-text">{{text}}</div>
+            </div>
+          {{/each}}
+        </div>
+        <form class="form">
+          <legend class="feadback-title">Ваш отзыв</legend>
+          <input type="text" class="field-name" placeholder="Ваше имя">
+          <input type="text" class="field-place" placeholder="Укажите место">
+          <textarea class="field-feadback" placeholder="Поделитесь впечатлениями">
+          </textarea>
+          <button>Добавить</button>
+        </form>
+      </div>

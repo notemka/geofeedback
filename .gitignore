@@ -1,0 +1,6 @@
+app/bower
+node_modules
+dist
+app/vendor
+.idea
+.htaccess
